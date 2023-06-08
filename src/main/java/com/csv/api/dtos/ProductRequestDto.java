@@ -1,5 +1,7 @@
 package com.csv.api.dtos;
 
+import javax.validation.constraints.NotNull;
+
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
 
@@ -18,10 +20,12 @@ public class ProductRequestDto {
 
 	@CsvBindByName(column = "Product Name")
 	@CsvBindByPosition(position = 0)
+	@NotNull(message="productName is required")
 	private String productName;
 
 	@CsvBindByName(column = "Product Price")
 	@CsvBindByPosition(position = 1)
+	@NotNull(message="productPrice is required")
 	private Double productPrice;
 
 	@CsvBindByName(column = "Quantity")

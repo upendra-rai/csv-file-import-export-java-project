@@ -32,7 +32,7 @@ public class ProductController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Void> saveProduct(@RequestBody ProductRequestDto productRequestDto) {
+	public ResponseEntity<Void> saveProduct(@Valid @RequestBody ProductRequestDto productRequestDto) {
 		productService.createProduct(productRequestDto);
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
@@ -44,7 +44,7 @@ public class ProductController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Void> updateProduct(@PathVariable Integer id,
-			@RequestBody ProductRequestDto productRequestDto) {
+			@Valid @RequestBody ProductRequestDto productRequestDto) {
 		productService.updateProduct(id, productRequestDto);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
